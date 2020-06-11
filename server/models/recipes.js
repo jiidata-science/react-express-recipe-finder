@@ -11,7 +11,7 @@ const globalOptions = {
 
 function getRecipesFromIngredientsConfig (ingredients, intolerances) {
   const apiConfig = globalOptions;
-  const num = 1;
+  const num = 10;
   apiConfig[ 'url' ] = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searchComplex?includeIngredients=${ ingredients }&intolerances=${ intolerances }&number=${ num }`;
   return apiConfig;
 }
@@ -19,7 +19,6 @@ function getRecipesFromIngredientsConfig (ingredients, intolerances) {
 function getRecipeDetailsConfig (recipeIDs) {
   const apiConfig = globalOptions;
   apiConfig[ 'url' ] = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/informationBulk?ids=${ recipeIDs.join(',') }`;
-  console.log(apiConfig.url);
   return apiConfig;
 }
 
@@ -35,14 +34,19 @@ function processDetails (recipesDetails) {
       'sourceName': recObj.sourceName,
       'sourceUrl': recObj.sourceUrl,
       'image': recObj.image,
-      'healthScore:': recObj.healthScore,
       'spoonacularScore': recObj.spoonacularScore,
       'vegetarian': recObj.vegetarian,
       'vegan': recObj.vegan,
       'glutenFree': recObj.glutenFree,
       'dairyFree': recObj.dairyFree,
       'lowFodmap': recObj.lowFodmap,
-      'summary': recObj.summary
+      'healthScore:': recObj.healthScore,
+      'diets': recObj.diets,
+      'dishTypes': recObj.dishTypes,
+      'veryPopular': recObj.veryPopular,
+      'weightWatcherSmartPoints': recObj.weightWatcherSmartPoints,
+      'ingredientsList': recObj.extendedIngredients.map(ingredient => ingredient.name), //[ 'chicken', 'egg', 'tomato', 'apples', 'cinamon', 'peanuts' ],
+      'summary': recObj.summary,
     });
   }
   return ret;

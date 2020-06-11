@@ -17,7 +17,7 @@ function mwAuthenticate () {
   const secret = process.env.JWT_SECRET;
   return expressJwt({ secret }).unless({
     path: [
-      '/recipes', '/userSingup', '/userLogin'
+      '/recipes', '/userSingup', '/userLogin', '/'
     ]
   });
 }
@@ -61,13 +61,13 @@ async function createUser (req, res) {
     /* CHECK INCOMING VARIABLES */
     if (!bdy.email || !bdy.firstname || !bdy.lastname || !bdy.password) {
       res.status(422);
-      res.json({ 'status': [ 'Bad Request', 'email address, firstname, lastname and/or password' ] });
+      res.json({ 'status': [ 'Bad Request', 'Email address, firstname, lastname and/or password' ] });
     }
     /* CHECK IF USER EXISTS ALREADY */
     const emailCheck = await UserCredentials.find({ email: bdy.email });
     if (emailCheck.length > 0) {
       res.status(409);
-      res.json({ 'status': [ 'Bad Request', 'email address already exists. Please login instead.' ] });
+      res.json({ 'status': [ 'Bad Request', 'Email address already exists. Please login instead.' ] });
     }
     /* OTHERWISE: CREATE USER */
     const user = await UserCredentials.create({
@@ -96,13 +96,14 @@ async function userLogin (req, res) {
 
     /* CHECK BASIC AUTH */
     const authbs64 = (req.headers.authorization || '').split(' ')[ 1 ] || '';
-    const authString = Buffer.from(b64auth, 'base64').toString();
-    const splitIndex = strauth.indexOf(':');
-    const [ email, pw ] = [ strauth.substring(0, splitIndex), strauth.substring(1, splitIndex) ];
-    if (!email || pw) {
-      res.status(422);
-      res.json({ 'status': [ 'Bad Request', 'email or password missing.' ] });
-    }
+    const authString = Buffer.from(authbs64, 'base64').toString();
+    const splitIndex = authString.indexOf(':');
+    const [ email, pw ] = [ authString.substring(0, splitIndex), authString.substring(1, splitIndex) ];
+    // console.log(email, pw)
+    // if (!email || pw) {
+    //   res.status(422);
+    //   res.json({ 'status': [ 'Bad Request', 'email or password missing.' ] });
+    // }
 
     /* CHECK INCOMING VARIABLES */
     if (!bdy.email || !bdy.password) {
@@ -120,7 +121,7 @@ async function userLogin (req, res) {
     const pwMatch = (UserCredentials.validPassword(bdy.password, userDetails.password)) ? true : false;
     if (!pwMatch) {
       res.status(401);
-      res.json({ 'status': [ 'Bad Request', 'email and password do not match.' ] });
+      res.json({ 'status': [ 'Bad Request', 'Email and password do not match.' ] });
     }
     /* OTHERWISE : GENERATE TOKEN FOR STATE MANAGEMENT */
     const token = utils.generateToken(userDetails);
