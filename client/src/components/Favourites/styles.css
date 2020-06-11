@@ -1,0 +1,19 @@
+.my_favourites h1, .fave_name {
+  padding: 0;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 2rem;
+  color: gray;
+}
+
+.fave_name {
+  color: var(--main-color-green) ;
+}
+
+.fave_none_saved {
+  padding: 0;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(128, 128, 128, 0.534);
+}
