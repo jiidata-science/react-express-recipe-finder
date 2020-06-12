@@ -68,6 +68,27 @@ function RecipeItem ({
     return types;
   }
 
+  function removeIfNoIngredients () {
+    if (disableLike !== true && recipeItem.usedIngredientCount) {
+      return (
+        <div className="item_details">
+          <p>Total ingredients (non-pantry) : <span>{recipeItem.usedIngredientCount + recipeItem.missedIngredientCount}</span></p>
+          <p>Num. used ingredients : <span>{recipeItem.usedIngredientCount}</span></p>
+          <p>Num. extra ingredients needed : <span>{recipeItem.missedIngredientCount}</span></p>
+          <p>Ready in <span>{recipeItem.readyInMinutes} minutes</span></p>
+          <p>Servings : <span>{recipeItem.servings}</span></p>
+        </div>
+      )
+    } else {
+      return (
+        <div className="item_details" >
+          <p>Ready in <span>{recipeItem.readyInMinutes} minutes</span></p>
+          <p>Servings : <span>{recipeItem.servings}</span></p>
+        </div>
+      )
+    }
+  }
+
   return (
     <div className="item">
       <div className="container-recipe-item">
@@ -87,33 +108,17 @@ function RecipeItem ({
             </Tooltip>
             : <img className={isFave() & loggedIn === true ? "image_heart_red" : "image_heart"} src={isFave() ? likeIconClicked : likeIconOriginal} alt="like_logo" onClick={likeItem} />
           }
-
           {catVegetarian === true ? <Tooltip title="Vegetarian" TransitionComponent={Zoom} placement="top"><span><div class="circle c-green">V</div></span></Tooltip> : <p></p>}
           {catGlutenFree === true ? <Tooltip title="Gluten Free" TransitionComponent={Zoom} placement="top"><span><div class="circle c-red">GF</div></span></Tooltip> : <p></p>}
           {catDairyFree === true ? <Tooltip title="Dairy Free" TransitionComponent={Zoom} placement="top"><span><div class="circle c-yellow">DF</div></span></Tooltip> : <p></p>}
           {catFodmap === true ? <Tooltip title="Fodmap" TransitionComponent={Zoom} placement="top"><span><div class="circle c-blue">F</div></span></Tooltip> : <p></p>}
-          {/* {distTypes} */}
         </div>
 
         <div className="item_title">{recipeItem.title}</div>
         <Divider component="li" />
         <div className="container-recipe-details">
           <h5>Info</h5>
-
-          {disableLike === true ?
-            <div className="item_details">
-              <p>Ready in <span>{recipeItem.readyInMinutes} minutes</span></p>
-              <p>Servings : <span>{recipeItem.servings}</span></p>
-            </div>
-            :
-            <div className="item_details">
-              <p>Total ingredients (non-pantry) : <span>{recipeItem.usedIngredientCount + recipeItem.missedIngredientCount}</span></p>
-              <p>Num. used ingredients : <span>{recipeItem.usedIngredientCount}</span></p>
-              <p>Num. extra ingredients needed : <span>{recipeItem.missedIngredientCount}</span></p>
-              <p>Ready in <span>{recipeItem.readyInMinutes} minutes</span></p>
-              <p>Servings : <span>{recipeItem.servings}</span></p>
-            </div>
-          }
+          {removeIfNoIngredients()}
 
           <Divider component="li" />
           <h5>Ingredients</h5>

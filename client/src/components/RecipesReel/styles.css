@@ -17,61 +17,34 @@
   align-content: space-between;
 }
 
-/* RECIPE LIST CONTAINER */
-
-.item_details_health {
-  display: inline-flex;
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
-.item_ingredients {
-  font-size: 1px;
-  display: -moz-inline-grid;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  overflow-x: scroll;
-}
-
-.padder {
-  margin-left: 6px;
-  margin-top: 6px;
-}
-
-.item h5 {
-  padding: 4px;
-  line-height: 2rem;
-}
+/* RECIPE CARD CONTAINER */
 
 .container-recipe-item {
-
   height: 350px;
   min-width: 320px;
   max-width: 320px;
-  
   margin-left: 20px;
   margin-right: 10px;
-
   margin-bottom: 40px;
-
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
   border-color: rgb(209, 209, 209);
-  
   box-shadow: 0 0 10px 1px #3333;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
-
   color: var(--main-color-dark-grey);
 }
 
-
 .item_image {
   height: 185px;
+}
+
+.item a {
+  text-decoration: none; 
 }
 
 .image_food {
@@ -88,14 +61,8 @@
   opacity: 0;
   transform: translate(0px, -100px);
   color: #21413e;
-  /* border-style: solid;
-  border-color: rgb(46, 46, 46);
-  border-width: 3px;
-  border-radius: 20px; */
-
   padding: 5px;
   text-align: center;
-
   width: 200px;
   margin-left: 16%;
   margin-top: -10px;
@@ -108,11 +75,6 @@
   text-shadow: 0 0 10px 10px #3333;
 }
 
-a {
-  text-decoration: none; 
-  margin:0;
-  padding:0;
-}
 
 .item_image:hover .image_food {
   opacity: 0.3;
@@ -123,6 +85,8 @@ a {
   opacity: 1;
   transition: opacity .1s;
 }
+
+
 
 /* IMAGE HEART ICON */
 
@@ -163,7 +127,7 @@ a {
   100% { transform: scale(1); }
 }
 
-/* IMAGE TITLE */
+/* IMAGE TITLE INFORMATION */
 
 .container-recipe-details {
   padding-left: 10px;
@@ -197,7 +161,6 @@ a {
 
 .item_summary {
   border-top-style: solid;
-  
 }
 
 .item_details_ww_logo {
@@ -210,8 +173,9 @@ a {
   margin-top: 8px;
   display: inline-flex;
   justify-content: start;
-  
 }
+
+/* RECIPE ITEM : CIRCULAR FOOD DIET CHARACTERISTICS */
 
 .circle {
   width: 30px;
@@ -242,3 +206,28 @@ a {
   background: #6a6fd6;
 }
 
+/* RECIPE ITEM : DETAILS */
+
+.item_details_health {
+  display: inline-flex;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.item_ingredients {
+  font-size: 1px;
+  display: -moz-inline-grid;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  overflow-x: scroll;
+}
+
+.padder {
+  margin-left: 6px;
+  margin-top: 6px;
+}
+
+.item h5 {
+  padding: 4px;
+  line-height: 2rem;
+}

@@ -9,6 +9,7 @@ const alerts = {
     confirmButtonText: "START NOW",
     confirmButtonColor: '#505050',
   },
+
   warnings: {
     addIngredient: {
       title: "Search and find ingredient.",

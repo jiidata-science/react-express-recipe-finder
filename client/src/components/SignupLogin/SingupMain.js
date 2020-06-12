@@ -33,7 +33,7 @@ function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
   /* LOGIN SUCCESSFUL POPUP */
   const Toast = Swal.mixin({
     toast: true,
-    position: 'bottom',
+    position: 'top',
     showConfirmButton: false,
     timer: 2000,
     timerProgressBar: true,
@@ -58,6 +58,7 @@ function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
           setUserDetails(res.user);
           setLoggedIn(true);
 
+          /* LOGIN USER ALERT */
           Toast.fire({
             icon: 'success',
             title: 'Signed in successfully'
@@ -77,6 +78,12 @@ function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
         if ((res) && (res.email)) {
           setPage('login');
           setSignupFlag(true);
+
+          /* USER ALERT SIGNUP */
+          Toast.fire({
+            icon: 'success',
+            title: 'Signed up! Please login.'
+          })
         } else {
           setErrorMessage(res.status[ 1 ]);
           SignupErrorPopup.fire({ text: res.status[ 1 ] });
@@ -88,6 +95,12 @@ function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
     Utils.removeUserSession();
     setLoggedIn(false);
     setUserDetails(null);
+
+    /* USER ALERT LOGOUT */
+    Toast.fire({
+      icon: 'success',
+      title: 'Signed out successfully'
+    })
   }
 
   return (
