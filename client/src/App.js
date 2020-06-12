@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faUtensils, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faUtensils, faSignInAlt, faUserPlus, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 import SearchPage from './components/SearchForm/Search.bar';
 import UserAuthorisation from './components/SignupLogin/SingupMain';
@@ -52,7 +52,7 @@ function App () {
             <Link className="main_nav_link nav_btn_hover_text" to="/" data-text="Search"><span><FontAwesomeIcon icon={faSearch} size="2x" /></span></Link>
             <Link className="main_nav_link nav_btn_hover_text" to="/favourites" data-text="My Recipes"><span><FontAwesomeIcon icon={faUtensils} size="2x" /></span></Link>
             <div></div>
-            <Link className="main_banner_singup nav_btn_hover_text" to="/signup" data-text="Log or Sign In"><span><FontAwesomeIcon icon={faUserPlus} size="2x" /></span></Link>
+            <Link className="main_banner_singup nav_btn_hover_text" to="/signup" data-text="Log or Sign In"><span><FontAwesomeIcon icon={faUserCircle} size="2x" /></span></Link>
           </div>
         </div>
 

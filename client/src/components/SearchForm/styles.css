@@ -19,7 +19,7 @@ input, button {
 /* SEARCH INTRO TEXT */
 
 .search_intro_text {
-  width: 45Vw;
+  width: 50Vw;
   min-width: 500px;
   text-align: center;
   margin: 30px auto;
@@ -31,12 +31,8 @@ input, button {
   font-size: 1.15rem;
 }
 
-.search_intro_text p+p {
-  margin-top: 25px;
-}
-
 .paragraph-bold {
-  font-weight: 900;
+  font-weight: 700;
   font-size: 1.15rem;
 }
 
@@ -54,22 +50,16 @@ input, button {
 
 .search_icon {
   flex: 1;
-  height: 45px;
-  text-indent: 15px;
-  padding-top: 8px;
-  margin-left: 4px;
-  margin-bottom: -10px;
-}
-
-.search_icon img {
-  width: 30px;
-  opacity: 0.3;
+  opacity: 0.2;
+  text-align: center;
+  padding-top: 13px;
+  padding-left: 5px;
 }
 
 .search_bar {
   flex: 8;
   height: 45px;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--main-color-mid-grey);
 }
 
@@ -99,19 +89,14 @@ input, button {
 .search_results {
   position: fixed;
   margin: 0px auto;
-  
-  
   width: 25Vw;
   min-width: 300px;
-
   line-height: 1.8rem;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-
   transform: translate(142%, -7%);
-
   transition: height 5s ease;
-  opacity: 0.95;
+  opacity: 0.98;
 }
 
 .search_results:hover {
@@ -153,20 +138,13 @@ input, button {
   color: var(--main-color-mid-grey);
 }
 
-.your_ingredients_title {
-  margin: 40px auto;
-  text-align: left;
-  font-size: 2rem;
-  color: var(--main-color-mid-grey);
-}
-
 .chosen_items_list {
   display: flex;
-  padding: 20px;
+  padding: 25px;
   margin: 40px auto;
   justify-content: left;
   max-width: 1850px;
-  width: 100Vw;
+  width: 90Vw;
   height: 150px;
   background-color: rgb(237, 240, 236);
   overflow-x: scroll;
@@ -190,7 +168,7 @@ input, button {
 }
 
 .item-green-border {
-  border-width: 4px;
+  border-width: 3px;
   border-style: solid;
   border-color: var(--main-color-green);
   text-align: center;
@@ -224,28 +202,26 @@ input, button {
 .tooltip {
   position: relative;
   display: inline-block;
-  margin-top: 30%;
+  margin-top: 28%;
   margin-bottom: 10px;
   cursor: auto;
 }
 
 .tooltiptext {
   visibility: hidden;
-  width: 150px;
   background-color: rgb(249, 249, 249);
   color: rgb(145, 145, 145);
   text-align: center;
-  border-radius: 6px;
+  border-radius: 20px;
   border-style: solid;
   border-width: 1px;
   border-color: rgb(177, 177, 177);
   padding: 10px 10px;
-
   line-height: 1.2rem;
-
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
+  box-shadow: 0 0 10px 2px;
 }
 
 .tooltip:hover .tooltiptext {
