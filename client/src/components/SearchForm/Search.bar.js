@@ -24,14 +24,13 @@ function SearchBar ({ chosenIngredients, setChosen, chosenClean, setChosenClean,
   const [ loading, setLoading ] = useState(false);
   const debounceOnChange = React.useCallback(_.debounce(getIngredients, 450), []);
 
-
   useEffect(() => {
 
     if (showInitialPopup === true && !loggedIn) {
       Swal.fire(
         {
           title: "Find recipes for your ingredients",
-          text: `Looking for a recipe that use specific ingredients? Tired of wasting food that you forgot to use? Get some recipe ideas for ingredients you have at home with our recipe search.`,
+          text: `Looking for recipes that use specific ingredients? Tired of wasting food that you forgot to use? Get some recipe ideas for ingredients you have at home with our recipe search.`,
           imageUrl: 'https://media.treehugger.com/assets/images/2020/04/getting_ingredients_out_of_the_fridge.jpg.600x315_q90_crop-smart.jpg',
           imageWidth: 400,
           imageHeight: 200,
@@ -186,8 +185,8 @@ function SearchBar ({ chosenIngredients, setChosen, chosenClean, setChosenClean,
         </ul>
       </div>
 
-
       {/* search for recipes*/}
+
       <div className="request_recipes">
         <div >
           <button className="request_submit"
@@ -211,7 +210,7 @@ function SearchBar ({ chosenIngredients, setChosen, chosenClean, setChosenClean,
           />
           : <h2 className="chosen_items_title">No recipes yet</h2>}
       </ul>
-    </div>
+    </div >
   );
 }
 

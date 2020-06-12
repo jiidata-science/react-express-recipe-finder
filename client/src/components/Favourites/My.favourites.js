@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { getFavourites } from '../../services/api-client-user';
+import { getFavourites, deleteFavourite } from '../../services/api-client-user';
 import Utils from '../../utils';
 import RecipeList from '../RecipesReel/Recipe.list';
 import Spinner from '../Spinner';
 import './styles.css';
+
+
 
 function MyFavourites ({ loggedIn, favourites }) {
 
@@ -27,9 +29,20 @@ function MyFavourites ({ loggedIn, favourites }) {
     }
   }, []);
 
+  /* DELETE ITEM FROM FAVOURITES */
+  function deleteItem (id) {
+    deleteFavourite(Utils.getUser().email, id)
+      .then(() => {
+        setMyFaves((myFaves) => {
+          let tempFaves = myFaves.filter((el) => el.id !== id)
+          return [ ...tempFaves ];
+        })
+      })
+    return;
+  }
+
   return (
     <div className="my_favourites">
-
       {
         myFaves.length > 0 ?
           <div>
@@ -40,7 +53,8 @@ function MyFavourites ({ loggedIn, favourites }) {
                   recipeList={myFaves}
                   favourites={favourites}
                   disableLike={true}
-                  loggedIn={loggedIn} />
+                  loggedIn={loggedIn}
+                  deleteItem={deleteItem} />
                 : <Spinner />
               }
             </ul>

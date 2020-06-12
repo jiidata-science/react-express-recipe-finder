@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import RecipeItem from './Recipe.item';
 
-function RecipeList ({ recipeList, addToFavourites, favourites, disableLike, loggedIn }) {
+function RecipeList ({ recipeList, addToFavourites, favourites, disableLike, loggedIn, deleteItem }) {
 
   return (
     <div className="recipe-list">
@@ -15,6 +15,7 @@ function RecipeList ({ recipeList, addToFavourites, favourites, disableLike, log
             favourites={favourites}
             disableLike={disableLike}
             loggedIn={loggedIn}
+            deleteItem={deleteItem}
           />))
       }
     </div>

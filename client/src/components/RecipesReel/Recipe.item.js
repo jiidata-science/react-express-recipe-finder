@@ -10,7 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-function RecipeItem ({ recipeItem, addToFavourites, favourites, disableLike, loggedIn }) {
+function RecipeItem ({ recipeItem, addToFavourites, favourites, disableLike, loggedIn, deleteItem }) {
 
   const [ catVegetarian, setVeg ] = useState(false);
   const [ catFodmap, setFodmap ] = useState(false);
@@ -18,7 +18,10 @@ function RecipeItem ({ recipeItem, addToFavourites, favourites, disableLike, log
   const [ catGlutenFree, setGluten ] = useState(false);
 
   function likeItem () {
-    addToFavourites({ id: recipeItem.id, title: recipeItem.title });
+    addToFavourites({
+      id: recipeItem.id,
+      title: recipeItem.title
+    });
   }
 
   function isFave () {
@@ -65,10 +68,6 @@ function RecipeItem ({ recipeItem, addToFavourites, favourites, disableLike, log
     return types;
   }
 
-  function deleteItem () {
-    console.log('deleted from favourites');
-  }
-
   return (
     <div className="item">
       <div className="container-recipe-item">
@@ -84,7 +83,7 @@ function RecipeItem ({ recipeItem, addToFavourites, favourites, disableLike, log
         <div className="container-recipe-categories">
           {disableLike === true ?
             <Tooltip title="Delete from faves" TransitionComponent={Zoom} placement="top">
-              <DeleteIcon className="delete_icon_position" src={likeIconOriginal} alt="delete_icon" onClick={deleteItem} />
+              <DeleteIcon className="delete_icon_position" src={likeIconOriginal} alt="delete_icon" onClick={() => deleteItem(recipeItem.id)} />
             </Tooltip>
             : <img className={isFave() & loggedIn === true ? "image_heart_red" : "image_heart"} src={isFave() ? likeIconClicked : likeIconOriginal} alt="like_logo" onClick={likeItem} />
           }

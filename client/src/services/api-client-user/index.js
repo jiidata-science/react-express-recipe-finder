@@ -55,7 +55,6 @@ export function addFavourite (bodyObj) {
 
 /* GET FAVOURITES */
 export function getFavourites (userEmail) {
-
   return fetchRequest(apiBaseURL, `/favourites?email=${ userEmail }`, {
     "headers": {
       "Authorization": `Bearer ${ sessionStorage.token }`,
@@ -64,6 +63,7 @@ export function getFavourites (userEmail) {
   });
 }
 
+/* DELETE FAVOURITE */
 export function deleteFavourite (userEmail, recipe_id) {
   return fetchRequest(apiBaseURL, `/favourite?email=${ userEmail }&recipe_id=${ recipe_id }`, {
     method: 'DELETE',
