@@ -4,8 +4,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faUtensils, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
-import SearchBar from './components/SearchForm/Search.bar';
-import SignupMain from './components/SignupLogin/SingupMain';
+import SearchPage from './components/SearchForm/Search.bar';
+import UserAuthorisation from './components/SignupLogin/SingupMain';
 import MyFavourites from './components/Favourites/My.favourites';
 import Utils from './utils';
 import './App.css';
@@ -56,12 +56,10 @@ function App () {
           </div>
         </div>
 
-
-
-
+        {/* ROUTE SWITCHES*/}
         <Switch>
           <Route exact path="/">
-            <SearchBar
+            <SearchPage
               chosenIngredients={chosenIngredients}
               setChosen={setChosen}
               chosenClean={chosenClean}
@@ -70,23 +68,22 @@ function App () {
               setRecipes={setRecipes}
               favourites={favourites}
               setFavourites={setFavourites}
-
-              /* Initial popup on page */
-              showInitialPopup={showInitialPopup}
+              showInitialPopup={showInitialPopup} /* Initial popup on page */
               setInitPopup={setInitPopup}
-
-              /* change functionality based on state */
-              loggedIn={loggedIn}
+              loggedIn={loggedIn} /* change functionality based on state */
             />
           </Route>
           <Route path="/favourites">
-            {(loggedIn === false ? <Redirect to='/signup' /> :
-              <MyFavourites
-                loggedIn={loggedIn}
-                favourites={favourites} />)}
+            {
+              (loggedIn === false ? <Redirect to='/signup' />
+                // TODO : Add popup to instruct a signup / login to access route
+                :
+                <MyFavourites
+                  loggedIn={loggedIn}
+                  favourites={favourites} />)}
           </Route>
           <Route path="/signup">
-            <SignupMain
+            <UserAuthorisation
               loggedIn={loggedIn}
               setLoggedIn={setLoggedIn}
               userDetails={userDetails}
@@ -94,12 +91,9 @@ function App () {
             />
           </Route>
         </Switch>
-
-
       </Router>
     </div >
   )
 }
-
 
 export default App;
