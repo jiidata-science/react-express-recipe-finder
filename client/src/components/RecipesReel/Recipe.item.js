@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import './styles.css';
-import likeIconClicked from '../../images/like-heart-icon-click.svg';
-import likeIconOriginal from '../../images/like-heart-icon.svg';
-import weightWatchersImg from '../../images/Weightwatchers-logo.svg.png';
-
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-function RecipeItem ({ recipeItem, addToFavourites, favourites, disableLike, loggedIn, deleteItem }) {
+import likeIconClicked from '../../images/like-heart-icon-click.svg';
+import likeIconOriginal from '../../images/like-heart-icon.svg';
+import weightWatchersImg from '../../images/Weightwatchers-logo.svg.png';
+import './styles.css';
+
+function RecipeItem ({
+  recipeItem, addToFavourites, favourites, disableLike, loggedIn, deleteItem }) {
 
   const [ catVegetarian, setVeg ] = useState(false);
   const [ catFodmap, setFodmap ] = useState(false);
   const [ catDairyFree, setDairyFree ] = useState(false);
   const [ catGlutenFree, setGluten ] = useState(false);
+  const ingItems = [];
+  const distTypes = [];
 
   function likeItem () {
     addToFavourites({
@@ -27,9 +30,6 @@ function RecipeItem ({ recipeItem, addToFavourites, favourites, disableLike, log
   function isFave () {
     return favourites.some((el) => el.id === recipeItem.id);
   }
-
-  const ingItems = [];
-  const distTypes = [];
 
   useEffect(() => {
     recipeCategories();

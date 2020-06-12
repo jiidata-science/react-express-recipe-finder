@@ -2,10 +2,10 @@ import React from 'react';
 import './styles.css';
 import RecipeItem from './Recipe.item';
 
-function RecipeList ({ recipeList, addToFavourites, favourites, disableLike, loggedIn, deleteItem }) {
-
+function RecipeList ({ recipeList, addToFavourites, favourites,
+  disableLike, loggedIn, deleteItem }) {
   return (
-    <div className="recipe-list">
+    <div className="recipe_list_container">
       {
         recipeList.map((recipe =>
           <RecipeItem

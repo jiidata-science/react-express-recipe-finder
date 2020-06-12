@@ -4,6 +4,21 @@
   border: 0;
 }
 
+/* RECIPE LIST CONTAINER */
+
+.recipe_list_container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  overflow-y: hidden;
+  overflow-x: auto;
+  margin-top: 4vh;
+  justify-content: center; 
+  align-content: space-between;
+}
+
+/* RECIPE LIST CONTAINER */
+
 .item_details_health {
   display: inline-flex;
   margin-top: 8px;
@@ -27,19 +42,6 @@
   padding: 4px;
   line-height: 2rem;
 }
-
-.recipe-list {
-  display: flex;
-  flex-wrap: wrap;
-
-  margin-bottom: 10vh;
-  padding: 0vw 3vw;
-  overflow-y: hidden;
-  overflow-x: auto;
-
-  margin-top: 5vh;
-}
-
 
 .container-recipe-item {
 
