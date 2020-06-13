@@ -37,7 +37,7 @@ function Login ({ postLogin, signupSuccess, errorMessage, setErrorMessage }) {
   }
 
   function emailValidation () {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.email)) { return true; }
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.email)) { return true; } /* eslint no-useless-escape: "off" */
     return false;
   }
 

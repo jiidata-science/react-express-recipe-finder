@@ -35,7 +35,7 @@ function SearchBar ({ chosenIngredients, setChosen, chosenClean, setChosenClean,
       Swal.fire(AlertConfig.instructionalAlert);
       setInitPopup(false);
     }
-  }, [])
+  }) // removed []
 
   /* FUNC : SETTING SEARCH TERM STATE */
   function handleSearchTerm (term) {

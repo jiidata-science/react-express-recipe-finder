@@ -33,7 +33,7 @@ function RecipeItem ({
 
   useEffect(() => {
     recipeCategories();
-  }, [])
+  })
 
   /* PREPARE INGREDIENTS LIST */
   recipeItem.ingredientsList.forEach((ingr) =>
@@ -108,10 +108,10 @@ function RecipeItem ({
             </Tooltip>
             : <img className={isFave() & loggedIn === true ? "image_heart_red" : "image_heart"} src={isFave() ? likeIconClicked : likeIconOriginal} alt="like_logo" onClick={likeItem} />
           }
-          {catVegetarian === true ? <Tooltip title="Vegetarian" TransitionComponent={Zoom} placement="top"><span><div class="circle c-green">V</div></span></Tooltip> : <p></p>}
-          {catGlutenFree === true ? <Tooltip title="Gluten Free" TransitionComponent={Zoom} placement="top"><span><div class="circle c-red">GF</div></span></Tooltip> : <p></p>}
-          {catDairyFree === true ? <Tooltip title="Dairy Free" TransitionComponent={Zoom} placement="top"><span><div class="circle c-yellow">DF</div></span></Tooltip> : <p></p>}
-          {catFodmap === true ? <Tooltip title="Fodmap" TransitionComponent={Zoom} placement="top"><span><div class="circle c-blue">F</div></span></Tooltip> : <p></p>}
+          {catVegetarian === true ? <Tooltip title="Vegetarian" TransitionComponent={Zoom} placement="top"><span><div className="circle c-green">V</div></span></Tooltip> : <p></p>}
+          {catGlutenFree === true ? <Tooltip title="Gluten Free" TransitionComponent={Zoom} placement="top"><span><div className="circle c-red">GF</div></span></Tooltip> : <p></p>}
+          {catDairyFree === true ? <Tooltip title="Dairy Free" TransitionComponent={Zoom} placement="top"><span><div className="circle c-yellow">DF</div></span></Tooltip> : <p></p>}
+          {catFodmap === true ? <Tooltip title="Fodmap" TransitionComponent={Zoom} placement="top"><span><div className="circle c-blue">F</div></span></Tooltip> : <p></p>}
         </div>
 
         <div className="item_title">{recipeItem.title}</div>
@@ -129,8 +129,8 @@ function RecipeItem ({
           <Divider component="li" />
           <h5>Healthy eating</h5>
           <div className="item_details_health">
-            <img className="item_details_ww_logo" src={weightWatchersImg} />
-            <div class="circle c-blue">{recipeItem.weightWatcherSmartPoints}</div>
+            <img className="item_details_ww_logo" alt="weight_watchers_logo" src={weightWatchersImg} />
+            <div className="circle c-blue">{recipeItem.weightWatcherSmartPoints}</div>
           </div>
 
           <Divider component="li" />

@@ -172,7 +172,7 @@
 .container-recipe-categories {
   margin-top: 8px;
   display: inline-flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 /* RECIPE ITEM : CIRCULAR FOOD DIET CHARACTERISTICS */
