@@ -11,7 +11,6 @@ import '../components/SignupLogin/styles.css';
 function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
 
   const [ page, setPage ] = useState('signup');
-  // const [ signUpFlag, setSignupFlag ] = useState(false);
   const [ errorMessage, setErrorMessage ] = useState('');
 
   useEffect(() => {

@@ -33,13 +33,6 @@ export function postLogin (bodyObj) {
   });
 }
 
-var options = {
-  "headers": {
-    "Authorization": `Bearer ${ sessionStorage.token }`,
-    "Cookie": `token=${ sessionStorage.token }`
-  }
-};
-
 /* ADD FAVOURITE */
 export function addFavourite (bodyObj) {
   return fetchRequest(apiBaseURL, '/favourite', {
