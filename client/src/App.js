@@ -4,9 +4,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faUtensils, faSignInAlt, faUserPlus, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
-import SearchPage from './components/SearchForm/Search.bar';
-import UserAuthorisation from './components/SignupLogin/SingupMain';
-import MyFavourites from './components/Favourites/My.favourites';
+import SearchPage from './layouts/Search.page';
+import UserAuthorisation from './layouts/Singup.main';
+import MyFavourites from './layouts/My.favourites';
 import Utils from './utils';
 import './App.css';
 

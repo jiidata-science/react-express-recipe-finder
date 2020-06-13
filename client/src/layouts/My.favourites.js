@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { getFavourites, deleteFavourite } from '../../services/api-client-user';
-import Utils from '../../utils';
-import RecipeList from '../RecipesReel/Recipe.list';
-import Spinner from '../Spinner';
-import './styles.css';
-
-
+import { getFavourites, deleteFavourite } from '../services/api-client-user';
+import Utils from '../utils';
+import RecipeList from '../components/RecipesReel/Recipe.list';
+import Spinner from '../components/Spinner';
+import '../components/Favourites/styles.css';
 
 function MyFavourites ({ loggedIn, favourites }) {
 

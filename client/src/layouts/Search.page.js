@@ -5,17 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import { searchIngredients, searchMatchingRecipes } from '../../services/api-client-recipe';
-import { addFavourite, deleteFavourite } from '../../services/api-client-user';
-import SearchItem from './Search.results';
-import ChosenItem from './Chosen.item';
-import RecipeList from '../RecipesReel/Recipe.list';
-import Spinner from '../Spinner';
+import { searchIngredients, searchMatchingRecipes } from '../services/api-client-recipe';
+import { addFavourite, deleteFavourite } from '../services/api-client-user';
+import SearchItem from '../components/SearchForm/Search.results';
+import ChosenItem from '../components/SearchForm/Chosen.item';
+import RecipeList from '../components/RecipesReel/Recipe.list';
+import Spinner from '../components/Spinner';
 
-import Utils from '../../utils';
-import AlertConfig from '../../utils/alertConfig';
+import Utils from '../utils';
+import AlertConfig from '../utils/alertConfig';
 
-import './styles.css';
+import '../components/SearchForm/styles.css';
 
 /* CREATE LIBRARY OF ICONS FOR USE */
 library.add(faSearch);

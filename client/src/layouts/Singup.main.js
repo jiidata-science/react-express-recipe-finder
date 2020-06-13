@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import './styles.css';
-import SignUp from './Singup';
-import Login from './Login';
-import LoggedIn from './LoggedIn';
+import SignUp from '../components/SignupLogin/Signup';
+import Login from '../components/SignupLogin/Login';
+import LoggedIn from '../components/SignupLogin/Logged.in';
 
-import { postSignup, postLogin } from '../../services/api-client-user';
-import Utils from '../../utils';
-
+import { postSignup, postLogin } from '../services/api-client-user';
+import Utils from '../utils';
 import Swal from 'sweetalert2';
-
+import '../components/SignupLogin/styles.css';
 
 function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
 
   const [ page, setPage ] = useState('signup');
-  const [ signUpFlag, setSignupFlag ] = useState(false);
+  // const [ signUpFlag, setSignupFlag ] = useState(false);
   const [ errorMessage, setErrorMessage ] = useState('');
 
   useEffect(() => {
@@ -77,7 +75,7 @@ function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
         console.log(res);
         if ((res) && (res.email)) {
           setPage('login');
-          setSignupFlag(true);
+          // setSignupFlag(true);
 
           /* USER ALERT SIGNUP */
           Toast.fire({

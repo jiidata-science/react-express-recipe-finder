@@ -27,6 +27,14 @@ const alerts = {
       showCloseButton: true,
       confirmButtonColor: '#505050',
       confirmButtonText: 'CLOSE',
+    },
+    notEmailFormat: {
+      title: "Check your email address.",
+      text: "You have entered an invalid email address!",
+      icon: "info",
+      showCloseButton: true,
+      confirmButtonColor: '#505050',
+      confirmButtonText: 'CLOSE',
     }
   }
 }

@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faKey } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
+import AlertConfig from '../../utils/alertConfig';
 import './styles.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faKey } from '@fortawesome/free-solid-svg-icons'
 
 const initFormState = {
   email: '',
@@ -10,13 +12,10 @@ const initFormState = {
 
 function Login ({ postLogin, signupSuccess, errorMessage, setErrorMessage }) {
 
+  setErrorMessage('');
   const [ user, setUser ] = useState(initFormState);
   const [ show, setShow ] = useState(false);
   const [ showTxt, setShowTxt ] = useState('SHOW');
-
-  useEffect(() => {
-    setErrorMessage('');
-  }, []);
 
   function handleChange ({ target }) {
     setUser(user => ({ ...user, [ target.name ]: target.value }));
@@ -28,7 +27,7 @@ function Login ({ postLogin, signupSuccess, errorMessage, setErrorMessage }) {
       postLogin(user);
       // setUser(initFormState);
     } else {
-      alert("You have entered an invalid email address!");
+      Swal.fire(AlertConfig.warnings.notEmailFormat);
     }
   }
 
