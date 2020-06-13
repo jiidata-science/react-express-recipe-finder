@@ -3,7 +3,7 @@ import SignUp from '../components/SignupLogin/Signup';
 import Login from '../components/SignupLogin/Login';
 import LoggedIn from '../components/SignupLogin/Logged.in';
 
-import { postSignup, postLogin } from '../services/api-client-user';
+import { postSignup, postLogin } from '../services/api-client-user.js';
 import Utils from '../utils';
 import Swal from 'sweetalert2';
 import '../components/SignupLogin/styles.css';
