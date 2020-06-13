@@ -1,6 +1,5 @@
 const apiBaseURL = 'http://localhost:3001';
 const apiRecipeURL = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients';
-console.log(apiRecipeURL);
 
 /* Utility */
 function fetchRequest (baseURL, path, options) {
@@ -28,9 +27,11 @@ export function searchIngredients (searchTerm) {
 }
 
 /* Get recipes for ingredients */
-export function searchMatchingRecipes (ingredients, intolerances) {
-  return fetchRequest(apiBaseURL, `/recipes?ingredients=${ ingredients }&intolerances=${ intolerances }`);
-}
+// export function searchMatchingRecipes (ingredients, intolerances) {
+//   console.log('ingredients', ingredients);
+//   console.log('intolerances', intolerances);
+//   return fetchRequest(apiBaseURL, `/recipes?ingredients=${ ingredients }&intolerances=${ intolerances }`);
+// }
 
 /* Get selection of random recipes */
 export function getRandomRecipeList (searchTags, num) {

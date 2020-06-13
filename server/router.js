@@ -15,6 +15,7 @@ router.post('/userLogin', ctlrsUsr.userLogin);
 /* MANAGING FAVOURITES */
 router.post('/favourite', ctlrsUsr.addFavourite);
 router.get('/favourites', ctlrsUsr.getFavourites);
+router.get('/favouriteIDs', ctlrsUsr.getFavouritesIDs);
 router.delete('/favourite', ctlrsUsr.deleteFavourite);
 
 module.exports = router;

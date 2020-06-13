@@ -46,6 +46,17 @@ export function addFavourite (bodyObj) {
   });
 }
 
+/* DELETE FAVOURITE */
+export function deleteFavourite (userEmail, recipe_id) {
+  return fetchRequest(apiBaseURL, `/favourite?email=${ userEmail }&recipe_id=${ recipe_id }`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${ sessionStorage.token }`,
+      'Cookie': `token=${ sessionStorage.token }`
+    }
+  });
+}
+
 /* GET FAVOURITES */
 export function getFavourites (userEmail) {
   return fetchRequest(apiBaseURL, `/favourites?email=${ userEmail }`, {
@@ -56,13 +67,12 @@ export function getFavourites (userEmail) {
   });
 }
 
-/* DELETE FAVOURITE */
-export function deleteFavourite (userEmail, recipe_id) {
-  return fetchRequest(apiBaseURL, `/favourite?email=${ userEmail }&recipe_id=${ recipe_id }`, {
-    method: 'DELETE',
-    headers: {
-      'Authorization': `Bearer ${ sessionStorage.token }`,
-      'Cookie': `token=${ sessionStorage.token }`
+/* GET FAVOURITE IDS */
+export function getFavouritesIDs (userEmail) {
+  return fetchRequest(apiBaseURL, `/favouriteIDs?email=${ userEmail }`, {
+    "headers": {
+      "Authorization": `Bearer ${ sessionStorage.token }`,
+      "Cookie": `token=${ sessionStorage.token }`
     }
   });
 }

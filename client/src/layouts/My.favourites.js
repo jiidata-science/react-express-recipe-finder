@@ -3,7 +3,10 @@ import { getFavourites, deleteFavourite } from '../services/api-client-user';
 import Utils from '../utils';
 import RecipeList from '../components/RecipesReel/Recipe.list';
 import Spinner from '../components/Spinner';
+import { getFavouritesNEW } from '../services/api-client-user/index.new';
 import '../components/Favourites/styles.css';
+
+
 
 function MyFavourites ({ loggedIn, favourites }) {
 
@@ -14,7 +17,13 @@ function MyFavourites ({ loggedIn, favourites }) {
     const user = Utils.getUser();
     console.log(user)
     if (user !== null) {
-      getFavourites(user.email)
+      // getFavourites(user.email)
+      //   .then(res => { setMyFaves(res) })
+      //   .catch(() => {
+      //     setMyFaves([]);
+      //   })
+
+      getFavouritesNEW(user.email)
         .then(res => { setMyFaves(res) })
         .catch(() => {
           setMyFaves([]);

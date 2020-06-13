@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import { searchIngredients, searchMatchingRecipes } from '../services/api-client-recipe';
+import { searchIngredients } from '../services/api-client-recipe';
+import { searchMatchingRecipes } from '../services/api-client-recipe/index.new';
+
 import { addFavourite, deleteFavourite } from '../services/api-client-user';
 import SearchItem from '../components/SearchForm/Search.results';
 import ChosenItem from '../components/SearchForm/Chosen.item';

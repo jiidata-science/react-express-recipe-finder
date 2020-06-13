@@ -36,7 +36,7 @@ function App () {
     if (user !== null) {
       setLoggedIn(true);
       setUserDetails(user);
-    };
+    }
   }, [])
 
   return (
