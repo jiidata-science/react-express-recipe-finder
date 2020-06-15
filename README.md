@@ -15,18 +15,17 @@
 ### /client
 
 - the client was created using `create-react-app` installed globally via npm react -g, to provide a boostrapped project layout
-- `*pre-requisites*`
+- **Pre-requisites**
+  - run `npm i` to install all dependencies, listed in the corresponding `packages.json` file.
   - create a `.env` file within this directory specifying the following:
   ``` bash
   REACT_APP_APIKEY=<APIKEY>
-  // same key value as RECIPE_API_KEY
   ```
 
 ### /server
-
-- `*pre-requisites*`
+- **Pre-requisites**
+  - run `npm i` to install all dependencies, listed in the corresponding `packages.json` file.
   - create a `.env` file within this directory specifying the following:
   ``` bash
-  RECIPE_API_KEY=<APIKEY>
   JWT_SECRET=<JWTSECRET>
   ```
