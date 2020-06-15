@@ -4,10 +4,7 @@ const request = require('request-promise');
 const expressJwt = require('express-jwt');
 const _ = require('lodash');
 const jwt = require('jsonwebtoken');
-
 const { UserCredentials, UserRecipes } = require('../models/users');
-const { processResponse, optionsRecipes } = require('../models/recipes');
-const { getRecipeDetailsConfig, processDetails } = require('../models/recipes');
 
 /* -------------------------------------------------- */
 /* AUTHENTICATION MIDDLEWARE */
@@ -99,12 +96,6 @@ async function userLogin (req, res) {
     const authString = Buffer.from(authbs64, 'base64').toString();
     const splitIndex = authString.indexOf(':');
     const [ email, pw ] = [ authString.substring(0, splitIndex), authString.substring(1, splitIndex) ];
-    // console.log(email, pw)
-    // if (!email || pw) {
-    //   res.status(422);
-    //   res.json({ 'status': [ 'Bad Request', 'email or password missing.' ] });
-    // }
-
     /* CHECK INCOMING VARIABLES */
     if (!bdy.email || !bdy.password) {
       res.status(422);
@@ -154,36 +145,6 @@ async function addFavourite (req, res) {
     res.sendStatus(500);
   }
 }
-
-// async function getFavourites (req, res) {
-//   try {
-//     const emailAdd = req.query.email;
-//     const emailClean = await UserCredentials.find({ emailHash: emailAdd });
-//     const favourites = await UserRecipes.find({ email: emailClean[ 0 ].email });
-//     /* REMOVE DUPLICATES */
-//     let recIDs = [];
-//     favourites.forEach(el => {
-//       if (!recIDs.includes(el.recipe_id)) {
-//         recIDs.push(el.recipe_id)
-//       }
-//     });
-//     if (recIDs.length === 0) {
-//       res.status(202);
-//       res.json({ 'status': [ 'No favourites' ] });
-//     } else {
-//       /* RETRIEVE DETAILED RECIPE INFORMATION PER ID */
-//       const apiDetailsConfig = await getRecipeDetailsConfig(recIDs);
-//       let recDetails = await request(apiDetailsConfig);
-//       recDetails = JSON.parse(recDetails);
-//       let recDetailsClean = await processDetails(recDetails);
-//       res.status(200);
-//       res.json(recDetailsClean);
-//     }
-//   } catch (err) {
-//     console.log('ERROR: ', err); // eslint-disable-line no-console
-//     res.sendStatus(500);
-//   }
-// }
 
 async function getFavouritesIDs (req, res) {
   try {
