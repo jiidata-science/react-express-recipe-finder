@@ -11,9 +11,7 @@
 </p>
 
 ## Pre-reqs & Dependencies
-
 ### /client
-
 - the client was created using `create-react-app` installed globally via npm react -g, to provide a boostrapped project layout
 - **Pre-requisites**
   - run `npm i` to install all dependencies, listed in the corresponding `packages.json` file.
@@ -29,3 +27,9 @@
   ``` bash
   JWT_SECRET=<JWTSECRET>
   ```
+  
+## Running the app on localhost
+1) Initialise `mongoDB` via your terminal. You may need to install mongo if not already installed. MongoDB will run on default port 27017.
+2) Start the `Express` server via your terminal using `node index.js` in the /server directory.
+3) Start the `React` server via your terminal using `npm start` in the /client directory.
+N.B. On completion of step 3), the React application will launch on default port localhost:3000, in a web browser window.
