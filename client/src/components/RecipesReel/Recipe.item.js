@@ -20,11 +20,15 @@ function RecipeItem ({
   const ingItems = [];
   const distTypes = [];
 
+  const likeStatus = false;
   function likeItem () {
+    likeStatus = (likeStatus === false) ? true : false;
     addToFavourites({
       id: recipeItem.id,
       title: recipeItem.title
     });
+    // SHOW SUCCESS MESSAGE
+
   }
 
   function isFave () {
@@ -106,7 +110,10 @@ function RecipeItem ({
             <Tooltip title="Delete from faves" TransitionComponent={Zoom} placement="top">
               <DeleteIcon className="delete_icon_position" src={likeIconOriginal} alt="delete_icon" onClick={() => deleteItem(recipeItem.id)} />
             </Tooltip>
-            : <img className={isFave() & loggedIn === true ? "image_heart_red" : "image_heart"} src={isFave() ? likeIconClicked : likeIconOriginal} alt="like_logo" onClick={likeItem} />
+            : <img className={isFave() & loggedIn === true ? "image_heart_red" : "image_heart"}
+              src={isFave() ? likeIconClicked : likeIconOriginal}
+              alt="like_logo"
+              onClick={likeItem} />
           }
           {catVegetarian === true ? <Tooltip title="Vegetarian" TransitionComponent={Zoom} placement="top"><span><div className="circle c-green">V</div></span></Tooltip> : <p></p>}
           {catGlutenFree === true ? <Tooltip title="Gluten Free" TransitionComponent={Zoom} placement="top"><span><div className="circle c-red">GF</div></span></Tooltip> : <p></p>}

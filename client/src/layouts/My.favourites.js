@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import Utils from '../utils';
 import { deleteFavourite, getFavourites } from '../services/api-client-user.js';
 import RecipeList from '../components/RecipesReel/Recipe.list';
@@ -12,7 +13,6 @@ function MyFavourites ({ loggedIn, favourites }) {
 
   useEffect(() => {
     const user = Utils.getUser();
-    console.log(user)
     if (user !== null) {
       getFavourites(user.email)
         .then(res => { setMyFaves(res) })
@@ -27,6 +27,19 @@ function MyFavourites ({ loggedIn, favourites }) {
     }
   }, []);
 
+  /* SUCCESS MESSAGE FOR SAVING TO FAVES */
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
   /* DELETE ITEM FROM FAVOURITES */
   function deleteItem (id) {
     deleteFavourite(Utils.getUser().email, id)
@@ -36,6 +49,7 @@ function MyFavourites ({ loggedIn, favourites }) {
           return [ ...tempFaves ];
         })
       })
+      .then(() => Toast.fire({ icon: 'success', title: 'Recipe removed from faves.' }));
     return;
   }
 

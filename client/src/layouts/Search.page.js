@@ -70,6 +70,19 @@ function SearchBar ({ chosenIngredients, setChosen, chosenClean, setChosenClean,
     setChosenClean([]);
   }
 
+  /* SUCCESS MESSAGE FOR SAVING TO FAVES */
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
   /* ------------ APIS --------------- */
 
   /* AUTOCOMPLETE API : INGREDIENTS FROM SEARCH TERM */
@@ -109,6 +122,7 @@ function SearchBar ({ chosenIngredients, setChosen, chosenClean, setChosenClean,
             return [ ...favourites, item ]
           })
         })
+        .then(() => Toast.fire({ icon: 'success', title: 'Added another recipe.' }));
     }
     if (remove_or_add !== 'add') {
       deleteFavourite(Utils.getUser().email, item.id)
@@ -118,6 +132,7 @@ function SearchBar ({ chosenIngredients, setChosen, chosenClean, setChosenClean,
             return [ ...tempFaves ];
           })
         })
+        .then(() => Toast.fire({ icon: 'success', title: 'Recipe removed from faves.' }));
     }
   }
 
