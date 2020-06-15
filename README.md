@@ -7,7 +7,7 @@
 
 ## What the app looks like...
 <p align="center">
-<img src="./app_screenshot.png" width="800" height="600" />
+<img src="./app_screenshot.png" width="800" height="400" />
 </p>
 
 ## Pre-reqs & Dependencies
