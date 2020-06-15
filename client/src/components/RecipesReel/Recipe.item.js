@@ -27,8 +27,6 @@ function RecipeItem ({
       id: recipeItem.id,
       title: recipeItem.title
     });
-    // SHOW SUCCESS MESSAGE
-
   }
 
   function isFave () {

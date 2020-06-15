@@ -21,7 +21,7 @@ function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails, login
 
   const RedirectError = Swal.mixin({
     title: 'Login to create favourites.',
-    icon: 'warning'
+    icon: 'info'
   });
 
   useEffect(() => {

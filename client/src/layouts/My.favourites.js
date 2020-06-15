@@ -8,7 +8,7 @@ import '../components/Favourites/styles.css';
 
 function MyFavourites ({ loggedIn, favourites }) {
 
-  const [ myFaves, setMyFaves ] = useState([ 'init' ]);
+  const [ myFaves, setMyFaves ] = useState([]);
   const [ userName, setUserName ] = useState('');
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function MyFavourites ({ loggedIn, favourites }) {
           <div>
             <h1>Your favourite recipes, <span className="fave_name">{userName}</span></h1>
             <ul>
-              {myFaves.length > 1 ?
+              {myFaves.length > 0 ?
                 <RecipeList
                   recipeList={myFaves}
                   favourites={favourites}

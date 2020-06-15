@@ -2,8 +2,9 @@ import React from 'react';
 import './styles.css';
 import RecipeItem from './Recipe.item';
 
-function RecipeList ({ recipeList, addToFavourites, favourites,
-  disableLike, loggedIn, deleteItem }) {
+function RecipeList ({ recipeList, addToFavourites, favourites, disableLike, loggedIn, deleteItem }) {
+
+  console.log(recipeList);
   return (
     <div className="recipe_list_container">
       {
