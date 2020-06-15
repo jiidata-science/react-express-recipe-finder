@@ -8,14 +8,30 @@ import Utils from '../utils';
 import Swal from 'sweetalert2';
 import '../components/SignupLogin/styles.css';
 
-function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
+function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails, loginRedirect, setLoginRedirect }) {
 
   const [ page, setPage ] = useState('signup');
   const [ errorMessage, setErrorMessage ] = useState('');
 
+  const SignupErrorPopup = Swal.mixin({
+    title: 'There was a problem!',
+    text: 'Error',
+    icon: 'warning'
+  });
+
+  const RedirectError = Swal.mixin({
+    title: 'Login to create favourites.',
+    icon: 'warning'
+  });
+
   useEffect(() => {
     if (Utils.getToken() !== null) {
       setLoggedIn(true);
+    }
+    /* IF NOT LOGGED IN SHOW MESSAGE */
+    if (loginRedirect) {
+      RedirectError.fire({ text: 'Login first to start saving recipes.' });
+      setLoginRedirect(false);
     }
   }, [])
 
@@ -40,11 +56,7 @@ function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
     }
   })
 
-  const SignupErrorPopup = Swal.mixin({
-    title: 'There was a problem!',
-    text: 'Error',
-    icon: 'warning'
-  });
+
 
   function login (obj) {
     setErrorMessage('');
@@ -54,7 +66,6 @@ function SignupMain ({ setLoggedIn, loggedIn, userDetails, setUserDetails }) {
           Utils.setUserSession(res.token, res.user);
           setUserDetails(res.user);
           setLoggedIn(true);
-
           /* LOGIN USER ALERT */
           Toast.fire({
             icon: 'success',

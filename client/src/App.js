@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import Swal from 'sweetalert2';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faUtensils, faSignInAlt, faUserPlus, faUserCircle } from '@fortawesome/free-solid-svg-icons'
@@ -8,6 +9,7 @@ import SearchPage from './layouts/Search.page';
 import UserAuthorisation from './layouts/Singup.main';
 import MyFavourites from './layouts/My.favourites';
 import Utils from './utils';
+import AlertConfig from './utils/alertConfig';
 import './App.css';
 
 /* CREATE LIBRARY OF ICONS FOR USE */
@@ -27,6 +29,7 @@ function App () {
   // USER LOGIN states
   const [ loggedIn, setLoggedIn ] = useState(false);
   const [ userDetails, setUserDetails ] = useState(null);
+  const [ loginRedirect, setLoginRedirect ] = useState(false);
 
   // ONLOAD HOMEPAGE state
   const [ showInitialPopup, setInitPopup ] = useState(true);
@@ -38,6 +41,11 @@ function App () {
       setUserDetails(user);
     }
   }, [])
+
+  function redirectMyRecipes () {
+    setLoginRedirect(true);
+    return (<Redirect to='/signup' />);
+  }
 
   return (
     <div className="app">
@@ -75,8 +83,7 @@ function App () {
           </Route>
           <Route path="/favourites">
             {
-              (loggedIn === false ? <Redirect to='/signup' />
-                // TODO : Add popup to instruct a signup / login to access route
+              (loggedIn === false ? () => redirectMyRecipes()
                 :
                 <MyFavourites
                   loggedIn={loggedIn}
@@ -88,6 +95,8 @@ function App () {
               setLoggedIn={setLoggedIn}
               userDetails={userDetails}
               setUserDetails={setUserDetails}
+              loginRedirect={loginRedirect}
+              setLoginRedirect={setLoginRedirect}
             />
           </Route>
         </Switch>

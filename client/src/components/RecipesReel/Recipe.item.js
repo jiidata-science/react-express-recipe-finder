@@ -20,7 +20,7 @@ function RecipeItem ({
   const ingItems = [];
   const distTypes = [];
 
-  const likeStatus = false;
+  let likeStatus = false;
   function likeItem () {
     likeStatus = (likeStatus === false) ? true : false;
     addToFavourites({

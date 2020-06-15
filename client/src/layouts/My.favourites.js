@@ -16,9 +16,7 @@ function MyFavourites ({ loggedIn, favourites }) {
     if (user !== null) {
       getFavourites(user.email)
         .then(res => { setMyFaves(res) })
-        .catch(() => {
-          setMyFaves([]);
-        })
+        .catch(() => setMyFaves([]))
     }
 
     const userName = JSON.parse(sessionStorage.user).firstname;
