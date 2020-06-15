@@ -88,15 +88,18 @@ input, button {
 
 .search_results {
   position: fixed;
-  margin: 0px auto;
-  width: 25Vw;
-  min-width: 300px;
-  line-height: 1.8rem;
+  min-width: 200px;
+  max-width: 480px;
+  width: 480px;
+  right: 50%;
+  margin-right: -12Vw;
+  margin-top: -30px;
+
+  opacity: 0.98;
+  line-height: 1.6rem;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  transform: translate(142%, -7%);
-  transition: height 5s ease;
-  opacity: 0.98;
+  color: rgb(83, 83, 83);
 }
 
 .search_results:hover {

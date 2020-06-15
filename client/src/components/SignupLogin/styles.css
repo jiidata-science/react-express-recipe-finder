@@ -1,4 +1,5 @@
 /* MAIN PAGE MASTER */
+
 .signin-main {
   position: static;
   width: 360px;
@@ -20,13 +21,14 @@
 
 .selected_page {
   font-size: 1.2rem;
-  color: black;
-  text-shadow: 0px 1px 15px var(--main-color-green);
+  font-weight: 800;
+  color: rgb(82, 82, 82);
+  /* text-shadow: 0px 1px 15px var(--main-color-green); */
 }
 
 .unselected_page {
-  font-size: .9rem;
-  color: gray;
+  font-size: 1.0rem;
+  color: rgb(177, 177, 177);
 }
 
 /* FORMS */
