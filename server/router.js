@@ -1,7 +1,7 @@
 'use strict';
 
 const router = require('express').Router();
-const ctlrsRec = require('./controllers/recipes');
+// const ctlrsRec = require('./controllers/recipes');
 const ctlrsUsr = require('./controllers/users');
 
 /* RECIPES */

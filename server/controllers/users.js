@@ -155,36 +155,35 @@ async function addFavourite (req, res) {
   }
 }
 
-async function getFavourites (req, res) {
-  try {
-    const emailAdd = req.query.email;
-    const emailClean = await UserCredentials.find({ emailHash: emailAdd });
-    const favourites = await UserRecipes.find({ email: emailClean[ 0 ].email });
-    /* REMOVE DUPLICATES */
-    let recIDs = [];
-    favourites.forEach(el => {
-      if (!recIDs.includes(el.recipe_id)) {
-        recIDs.push(el.recipe_id)
-      }
-    });
-    if (recIDs.length === 0) {
-      res.status(202);
-      res.json({ 'status': [ 'No favourites' ] });
-    } else {
-      /* RETRIEVE DETAILED RECIPE INFORMATION PER ID */
-      const apiDetailsConfig = await getRecipeDetailsConfig(recIDs);
-      let recDetails = await request(apiDetailsConfig);
-      recDetails = JSON.parse(recDetails);
-      let recDetailsClean = await processDetails(recDetails);
-      res.status(200);
-      res.json(recDetailsClean);
-    }
-  } catch (err) {
-    console.log('ERROR: ', err); // eslint-disable-line no-console
-    res.sendStatus(500);
-  }
-}
-
+// async function getFavourites (req, res) {
+//   try {
+//     const emailAdd = req.query.email;
+//     const emailClean = await UserCredentials.find({ emailHash: emailAdd });
+//     const favourites = await UserRecipes.find({ email: emailClean[ 0 ].email });
+//     /* REMOVE DUPLICATES */
+//     let recIDs = [];
+//     favourites.forEach(el => {
+//       if (!recIDs.includes(el.recipe_id)) {
+//         recIDs.push(el.recipe_id)
+//       }
+//     });
+//     if (recIDs.length === 0) {
+//       res.status(202);
+//       res.json({ 'status': [ 'No favourites' ] });
+//     } else {
+//       /* RETRIEVE DETAILED RECIPE INFORMATION PER ID */
+//       const apiDetailsConfig = await getRecipeDetailsConfig(recIDs);
+//       let recDetails = await request(apiDetailsConfig);
+//       recDetails = JSON.parse(recDetails);
+//       let recDetailsClean = await processDetails(recDetails);
+//       res.status(200);
+//       res.json(recDetailsClean);
+//     }
+//   } catch (err) {
+//     console.log('ERROR: ', err); // eslint-disable-line no-console
+//     res.sendStatus(500);
+//   }
+// }
 
 async function getFavouritesIDs (req, res) {
   try {
@@ -227,6 +226,4 @@ async function deleteFavourite (req, res) {
   }
 }
 
-module.exports = {
-  createUser, userLogin, addFavourite, getFavourites, deleteFavourite, mwAuthenticate, getFavouritesIDs
-};
+module.exports = { createUser, userLogin, addFavourite, deleteFavourite, mwAuthenticate, getFavouritesIDs };
