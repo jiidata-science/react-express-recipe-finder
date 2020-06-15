@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
-import Swal from 'sweetalert2';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faUtensils, faSignInAlt, faUserPlus, faUserCircle } from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +8,6 @@ import SearchPage from './layouts/Search.page';
 import UserAuthorisation from './layouts/Singup.main';
 import MyFavourites from './layouts/My.favourites';
 import Utils from './utils';
-import AlertConfig from './utils/alertConfig';
 import './App.css';
 
 /* CREATE LIBRARY OF ICONS FOR USE */

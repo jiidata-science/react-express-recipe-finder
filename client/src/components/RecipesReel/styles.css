@@ -161,6 +161,10 @@
 
 .item_summary {
   border-top-style: solid;
+}  
+
+.item_summary p {
+  margin-left: 5px;
 }
 
 .item_details_ww_logo {

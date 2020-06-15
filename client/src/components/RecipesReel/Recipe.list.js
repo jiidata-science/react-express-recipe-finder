@@ -10,7 +10,7 @@ function RecipeList ({ recipeList, addToFavourites, favourites, disableLike, log
       {
         recipeList.map((recipe =>
           <RecipeItem
-            key={recipe.id + Math.floor(1000 * Math.random())}
+            key={recipe.id}
             recipeItem={recipe}
             addToFavourites={addToFavourites}
             favourites={favourites}

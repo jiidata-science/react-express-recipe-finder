@@ -39,12 +39,12 @@ function RecipeItem ({
 
   /* PREPARE INGREDIENTS LIST */
   recipeItem.ingredientsList.forEach((ingr) =>
-    ingItems.push(<Chip className='padder' label={ingr} />)
+    ingItems.push(<Chip key={recipeItem + Math.floor(Math.random() * 10000)} className='padder' label={ingr} />)
   )
 
   /* DISH TYPES */
   recipeItem.dishTypes.forEach((type) =>
-    distTypes.push(<Chip className='padder' label={type} />)
+    distTypes.push(<Chip key={recipeItem + Math.floor(Math.random() * 10000)} className='padder' label={type} />)
   )
 
   function recipeCategories () {
@@ -141,7 +141,7 @@ function RecipeItem ({
           <Divider component="li" />
           <div className="item_summary">
             <h5>Recipe summary</h5>
-            <p><div dangerouslySetInnerHTML={{ __html: recipeItem.summary }} /></p>
+            <p dangerouslySetInnerHTML={{ __html: recipeItem.summary }}></p>
           </div>
         </div>
       </div>
