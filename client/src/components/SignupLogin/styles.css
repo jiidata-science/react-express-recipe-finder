@@ -1,12 +1,9 @@
-
 /* MAIN PAGE MASTER */
 .signin-main {
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin: 60px 0 0 -180px;
+  position: static;
+  width: 360px;
+  margin: 60px auto;
   color: rgb(70, 70, 70);
-
 }
 
 .signin_chooser {
